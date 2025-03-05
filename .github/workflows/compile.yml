@@ -19,5 +19,8 @@ jobs:
     - name: Compile main.f90
       run: gfortran -o main.exe main.f90 mylib.dll
 
+    - name: Copy mylib.dll to current directory
+      run: cp mylib.dll .
+
     - name: Run the executable
       run: ./main.exe
