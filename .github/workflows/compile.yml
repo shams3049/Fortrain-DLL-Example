@@ -20,7 +20,10 @@ jobs:
       run: gfortran -o main.exe main.f90 mylib.dll
 
     - name: Copy DLL
-      run: cp mylib.dll ./
+      run: |
+        if [ ! -f ./mylib.dll ]; then
+          cp mylib.dll ./
+        fi
 
     - name: Run the executable
       run: LD_LIBRARY_PATH=. ./main.exe
