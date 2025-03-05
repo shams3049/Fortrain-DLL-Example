@@ -1,0 +1,23 @@
+name: Compile Fortran Examples
+
+on: [push, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Install gfortran
+      run: sudo apt-get install -y gfortran
+
+    - name: Compile mylib.f90
+      run: gfortran -shared -o mylib.dll -fPIC mylib.f90
+
+    - name: Compile main.f90
+      run: gfortran -o main.exe main.f90 mylib.dll
+
+    - name: Run the executable
+      run: ./main.exe
