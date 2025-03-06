@@ -13,11 +13,11 @@ jobs:
     - name: Install gfortran
       run: sudo apt-get install -y gfortran
 
-    - name: Compile mylib.f90
-      run: gfortran -shared -o mylib.dll -fPIC mylib.f90
+    - name: Compile mylib.f
+      run: gfortran -shared -o mylib.dll -fPIC mylib.f
 
-    - name: Compile main.f90
-      run: gfortran -o main.exe main.f90 mylib.dll
+    - name: Compile main.f
+      run: gfortran -o main.exe main.f mylib.dll
 
     - name: Copy DLL
       run: |

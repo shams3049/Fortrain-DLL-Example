@@ -4,8 +4,8 @@ This project demonstrates how to create and use a Fortran dynamic link library (
 
 ## Project Structure
 
-- `mylib.f90`: Contains the Fortran module with the `add_numbers` subroutine.
-- `main.f90`: Contains the main program that uses the `add_numbers` subroutine from the DLL.
+- `mylib.f`: Contains the Fortran module with the `add_numbers` subroutine.
+- `main.f`: Contains the main program that uses the `add_numbers` subroutine from the DLL.
 
 ## System Requirements
 
@@ -25,13 +25,13 @@ This project demonstrates how to create and use a Fortran dynamic link library (
 ### Step 1: Compile the Fortran module to create the DLL
 
 ```sh
-gfortran -shared -o mylib.dll -fPIC mylib.f90
+gfortran -shared -o mylib.dll -fPIC mylib.f
 ```
 
 ### Step 2: Compile the main program and link it with the DLL
 
 ```sh
-gfortran -o main.exe main.f90 mylib.dll
+gfortran -o main.exe main.f mylib.dll
 ```
 
 ### Step 3: Run the executable
